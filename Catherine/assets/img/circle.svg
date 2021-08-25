@@ -1,9 +1,0 @@
-<?xml version="1.0" standalone="no"?>
-<svg width="500" height="500" viewBox="-1 -1 2 2" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 0 -1 
-             A 1,1 0 0,1 0 1             L 0,0
-             z" fill="#a9bcd0" />
-            <path d="M 0 1 
-             A 1,1 0 0,1 -0 -1             L 0,0
-             z" fill="#d0bda9" />
-    </svg>
