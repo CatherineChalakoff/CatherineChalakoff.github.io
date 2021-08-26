@@ -1,1155 +1,566 @@
-/******************************************************************
-
-
-	------------------------
-	-- TABLE OF CONTENTS --
-	------------------------
-	
-	--  01. Basic
-	--  02. Preloader
-    --  03. Image Container
-    --  04. Content Area
-    --  05. Content Area --> Intro
-    --  06. Content Area --> About
-    --  07. Content Area --> Service
-    --  08. Content Area --> Work
-    --  09. Content Area --> Contact
-    --  10. Content Area --> Footer
- 
- 
- ******************************************************************/
-
-
-
-
-/** 1. Basic
-*******************************************************************/
-
-html
-{
-    font-size: 10px;
-}
-
-body
-{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    font-style: normal;
-
-    color: #fff;
-    background: #fff;
-
-    -webkit-font-smoothing: antialiased;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6
-{
-    font-weight: normal;
-
-    letter-spacing: .02em;
-
-    color: #fff;
-}
-
-h1
-{
-    font-size: 6rem;
-}
-
-h2
-{
-    font-size: 4rem;
-}
-
-h3
-{
-    font-size: 3.4rem;
-}
-
-h4
-{
-    font-size: 2.9rem;
-}
-
-h5
-{
-    font-size: 2.3rem;
-}
-
-h6
-{
-    font-size: 1.9rem;
-}
-
-p
-{
-    font-size: 1.8rem;
-    line-height: 1.7em;
-}
-
-a,
-a:hover,
-a:focus
-{
-    cursor: pointer;
-    -webkit-transition: all 300ms ease;
-         -o-transition: all 300ms ease;
-            transition: all 300ms ease;
-    text-decoration: none;
-
-    color: #fff;
-}
-
-button
-{
-    border: 2px solid #fff;
-    background: none;
-}
-
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active
-{
-    border-color: #fff !important;
-    outline: none !important;
-    background: none !important;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-}
-
-@media (max-width:600px)
-{
-    html
-    {
-        font-size: 8px;
-    }
-}
-
-@media (max-width:500px)
-{
-    html
-    {
-        font-size: 7px;
-    }
-}
-
-
-
-/** 2. Preloader
-*******************************************************************/
-
-.preloader
-{
-    position: fixed;
-    z-index: 100000;
-    top: 0;
-    right: 0;
-
-    overflow: hidden;
-
-    width: 100%;
-    height: 100%;
-
-    background: #fff;
-}
-
-.preloader.hide-preloader
-{
-    width: 0;
-
-    -webkit-transition: .7s ease .3s;
-         -o-transition: .7s ease .3s;
-            transition: .7s ease .3s;
-}
-
-.preloader .spinner
-{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-
-    display: block;
-
-    width: 50px;
-    height: 50px;
-    margin-top: -25px;
-    margin-left: -25px;
-
-    -webkit-animation: spinner-pulse .6s infinite ease-in-out;
-            animation: spinner-pulse .6s infinite ease-in-out;
-    text-align: center;
-
-    opacity: 1;
-    border-radius: 100%;
-    background-color: #111;
-}
-
-.preloader.hide-preloader .spinner
-{
-    -webkit-transition: .3s ease;
-         -o-transition: .3s ease;
-            transition: .3s ease;
-
-    opacity: 0;
-}
-
-@-webkit-keyframes spinner-pulse
-{
-    0%
-    {
-        -webkit-transform: scale(0);
-    }
-    100%
-    {
-        -webkit-transform: scale(1.0);
-
-        opacity: 0;
-    }
-}
-
-@keyframes spinner-pulse
-{
-    0%
-    {
-        -webkit-transform: scale(0);
-                transform: scale(0);
-    }
-    100%
-    {
-        -webkit-transform: scale(1.0);
-                transform: scale(1.0);
-
-        opacity: 0;
-    }
-}
-
-
-
-/** 3. Image Container
-*******************************************************************/
-
-.image-container
-{
-    position: fixed;
-    z-index: -1;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-}
-
-.image-container .background-img
-{
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    -webkit-transition: opacity 1s ease;
-         -o-transition: opacity 1s ease;
-            transition: opacity 1s ease;
-
-    background: url(../img/square.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-
-
-
-/** 4. Content Area
-*******************************************************************/
-
-.content-area
-{
-    position: relative;
-    left: 0;
-
-    width: 100%;
-}
-
-.content-area .content-area-inner
-{
-    position: relative;
-
-    width: 100%;
-    padding: 0 20px;
-    overflow-x: hidden;
-}
-
-.content-area .content-area-inner section
-{
-    max-width: 700px;
-    margin: 0 auto 20vh auto;
-}
-
-.content-area .content-area-inner section:last-child
-{
-    margin-bottom: 10vh;
-}
-
-.content-area .content-area-inner section h3.headline
-{
-    margin-bottom: 1.4em;
-}
-
-
-
-/** 5. Content Area --> Intro
-*******************************************************************/
-
-#intro
-{
-    position: relative;
-
-    height: 100vh;
-    margin-bottom: 0;
-
-    text-align: center;
-}
-
-#intro .container-mid
-{
-    position: absolute;
-    top: 50%;
-
-    width: 100%;
-
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-}
-
-#intro .container-mid h1
-{
-    font-weight: 500;
-
-    margin-bottom: .6em;
-}
-
-#intro .container-mid a
-{
-    font-size: 2.5rem;
-    line-height: 2.92em;
-
-    position: relative;
-
-    display: inline-block;
-    overflow: hidden;
-
-    -webkit-transition: .2s ease;
-         -o-transition: .2s ease;
-            transition: .2s ease;
-    letter-spacing: .04em;
-
-    border-radius: 100px;
-}
-
-#intro .container-mid a .circle
-{
-    font-size: 1em;
-    line-height: 5.7rem;
-
-    position: relative;
-
-    display: inline-block;
-    overflow: hidden;
-
-    width: 5.7rem;
-    height: 5.7rem;
-    margin-left: 1em;
-
-    vertical-align: middle;
-
-    border: 3px solid #fff;
-    border-radius: 100%;
-}
-
-#intro .container-mid a .circle i
-{
-    position: absolute;
-    top: 50%;
-    left: 0;
-
-    width: 100%;
-
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    text-align: center;
-}
-
-#intro .container-mid a .circle i:first-child
-{
-    top: -50%;
-}
-
-#intro .container-mid a:hover .circle i:first-child
-{
-    top: 50%;
-
-    -webkit-transition: .15s ease;
-         -o-transition: .15s ease;
-            transition: .15s ease;
-}
-
-#intro .container-mid a .circle i:last-child
-{
-    top: 50%;
-}
-
-#intro .container-mid a:hover .circle i:last-child
-{
-    top: 150%;
-
-    -webkit-transition: .15s ease;
-         -o-transition: .15s ease;
-            transition: .15s ease;
-}
-
-#intro .animation-container
-{
-    -webkit-transition: .5s ease;
-         -o-transition: .5s ease;
-            transition: .5s ease;
-}
-
-#intro .animation-container.animation-fade
-{
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade.run-animation
-{
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-up
-{
-    -webkit-transform: translateY(10vh);
-        -ms-transform: translateY(10vh);
-            transform: translateY(10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-up.run-animation
-{
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
-
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-down
-{
-    -webkit-transform: translateY(-10vh);
-        -ms-transform: translateY(-10vh);
-            transform: translateY(-10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-down.run-animation
-{
-    -webkit-transform: translateY(0);
-        -ms-transform: translateY(0);
-            transform: translateY(0);
-
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-left
-{
-    -webkit-transform: translateX(10vh);
-        -ms-transform: translateX(10vh);
-            transform: translateX(10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-left.run-animation
-{
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
-
-    opacity: 1;
-}
-
-#intro .animation-container.animation-fade-right
-{
-    -webkit-transform: translateX(-10vh);
-        -ms-transform: translateX(-10vh);
-            transform: translateX(-10vh);
-
-    opacity: 0;
-}
-
-#intro .animation-container.animation-fade-right.run-animation
-{
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
-
-    opacity: 1;
-}
-
-
-
-/** 6. Content Area --> About
-*******************************************************************/
-
-#about p
-{
-    margin-bottom: 2.2em;
-}
-
-#about p:last-child
-{
-    margin-bottom: 0;
-}
-
-#about .clients img
-{
-    margin-top: 3rem;
-}
-
-
-
-/** 7. Content Area --> Service
-*******************************************************************/
-
-#service .services-list
-{
-    margin-bottom: 0;
-    padding: 0;
-
-    list-style: none;
-}
-
-#service .services-list li
-{
-    display: block;
-}
-
-#service .services-list li button
-{
-    font-size: 2.4rem;
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 3.4em;
-
-    position: relative;
-
-    display: block;
-
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0;
-
-    text-align: left;
-
-    border: none;
-    border-bottom: 2px solid #ccc;
-    border-radius: 0;
-}
-
-#service .services-list li button:after
-{
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: 1.7rem;
-
-    position: absolute;
-    top: 50%;
-    right: 0;
-
-    content: '\f078';
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-
-    color: #fff;
-}
-
-#service .services-list li .well
-{
-    min-height: 20px;
-    margin-bottom: 0;
-    padding: 0;
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
-
-    -webkit-transition: 1s ease;
-         -o-transition: 1s ease;
-            transition: 1s ease;
-
-    border: none;
-    border-radius: 0;
-    background-color: rgba(0,0,0,0);
-    -webkit-box-shadow: none;
-            box-shadow: none;
-}
-
-
-
-/** 8. Content Area --> Work
-*******************************************************************/
-
-#work .showcase .item
-{
-    position: relative;
-
-    overflow: hidden;
-
-    width: 100%;
-    height: 22rem;
-    margin: 0;
-    margin-bottom: 6vh;
-
-    cursor: pointer;
-
-    border-radius: 0;
-    background: #111;
-}
-
-#work .showcase .item:last-child
-{
-    margin-bottom: 0;
-}
-
-#work .showcase .item .info
-{
-    position: absolute;
-    z-index: 100;
-    top: 0;
-    left: 0;
-
-    width: 0;
-    height: 100%;
-
-    -webkit-transition: .25s ease;
-         -o-transition: .25s ease;
-            transition: .25s ease;
-
-    color: #fff;
-    background: #fff;
-    background: -webkit-linear-gradient(left, rgba(150, 202, 147, 0.911) 1%,rgba(0,0,0,0) 100%);
-    background: -webkit-gradient(linear, left top, right top, color-stop(1%, rgb(150, 202, 147, 0.911)),to(rgba(0,0,0,0)));
-    background:      -o-linear-gradient(left, rgb(150, 202, 147, 0.911) 1%,rgba(0,0,0,0) 100%);
-    background:         linear-gradient(to right, rgb(150, 202, 147, 0.911) 1%,rgba(0,0,0,0) 100%);
-
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8f97db', endColorstr='#00000000',GradientType=1 );
-}
-
-#work .showcase .item:hover .info
-{
-    width: 100%;
-}
-
-#work .showcase .item .info .container-mid
-{
-    position: absolute;
-    top: 50%;
-    left: 0;
-
-    width: 100%;
-    padding: 0 6rem;
-
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-}
-
-#work .showcase .item .info .container-mid h5
-{
-    margin: 0;
-    margin-bottom: .2em;
-
-    -webkit-transform: translateX(4vh);
-        -ms-transform: translateX(4vh);
-            transform: translateX(4vh);
-
-    opacity: 0;
-    color: #fff;
-}
-
-#work .showcase .item:hover .info .container-mid h5
-{
-    -webkit-transition: .15s ease .15s;
-         -o-transition: .15s ease .15s;
-            transition: .15s ease .15s;
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
-
-    opacity: 1;
-}
-
-#work .showcase .item .info .container-mid p
-{
-    position: relative;
-
-    margin-bottom: 0;
-    padding-left: 1.4rem;
-
-    -webkit-transform: translateX(4vh);
-        -ms-transform: translateX(4vh);
-            transform: translateX(4vh);
-    letter-spacing: .025em;
-
-    opacity: 0;
-}
-
-#work .showcase .item:hover .info .container-mid p
-{
-    -webkit-transition: .15s ease .2s;
-         -o-transition: .15s ease .2s;
-            transition: .15s ease .2s;
-    -webkit-transform: translateX(0);
-        -ms-transform: translateX(0);
-            transform: translateX(0);
-
-    opacity: 1;
-}
-
-#work .showcase .item .info .container-mid p:before
-{
-    position: absolute;
-    top: 50%;
-    left: 0;
-
-    width: .6em;
-    height: 1px;
-
-    content: '';
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-
-    background: #fff;
-}
-
-#work .showcase .item .background-image
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-
-.featherlight .featherlight-content
-{
-    max-height: 95%;
-    padding: 0;
-
-    border-bottom: 0;
-    background: rgba(150, 202, 147, 0.815);
-}
-
-.featherlight .featherlight-content  .featherlight-close-icon
-{
-    font-size: 2.8rem;
-    line-height: 2em;
-
-    top: 4.5vh;
-    right: 4vh;
-
-    width: 2em;
-
-    -webkit-transform: translate(50%,-50%);
-        -ms-transform: translate(50%,-50%);
-            transform: translate(50%,-50%);
-
-    color: #fff;
-    outline: none !important;
-    background: none;
-}
-
-.featherlight .featherlight-content .work-lightbox
-{
-    max-width: 900px;
-    padding: 9vh 8vh;
-
-    text-align: center;
-}
-
-.featherlight .featherlight-content .work-lightbox img
-{
-    margin: 0 auto 6vh auto;
-}
-
-.featherlight .featherlight-content .work-lightbox h3
-{
-    margin-bottom: .2em;
-}
-
-.featherlight .featherlight-content .work-lightbox p.subline
-{
-    margin-bottom: 1.6em;
-font-size: 50px;
-    letter-spacing: .025em;
-}
-
-.featherlight .featherlight-content .work-lightbox p
-{
-    max-width: 660px;
-    margin: 0 auto;
-    margin-bottom: 2em;
-}
-
-.featherlight .featherlight-content .work-lightbox p:last-child
-{
-    margin-bottom: 0;
-}
-
-
-
-/** 9. Content Area --> Contact
-*******************************************************************/
-
-#contact #contact-form
-{
-    position: relative;
-}
-
-#contact #contact-form .fhp-input
-{
-    display: none;
-
-    pointer-events: none;
-
-    opacity: 0;
-}
-
-#contact #contact-form input,
-#contact #contact-form textarea,
-#contact #contact-form button
-{
-    font-size: 2rem;
-
-    margin-bottom: 3.4vh;
-
-    -webkit-transition: .3s ease;
-         -o-transition: .3s ease;
-            transition: .3s ease;
-
-    color: #fff;
-    border: none;
-    border-bottom: 2px solid #fff;
-    border-radius: 0;
-    outline: none !important;
-    background: none;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-}
-
-#contact #contact-form.success input,
-#contact #contact-form.success textarea,
-#contact #contact-form.success button
-{
-    border: none;
-}
-
-#contact #contact-form.success input,
-#contact #contact-form.success textarea,
-#contact #contact-form.success button
-{
-    line-height: 0;
-
-    height: 0;
-    margin: 0;
-    padding: 0;
-
-    opacity: 0;
-}
-
-#contact #contact-form input::-webkit-input-placeholder,
-#contact #contact-form textarea::-webkit-input-placeholder
-{
-    color: #fff;
-}
-
-#contact #contact-form input:-ms-input-placeholder,
-#contact #contact-form textarea:-ms-input-placeholder
-{
-    color: #fff;
-}
-
-#contact #contact-form input::-ms-input-placeholder,
-#contact #contact-form textarea::-ms-input-placeholder
-{
-    color: #fff;
-}
-
-#contact #contact-form input::placeholder,
-#contact #contact-form textarea::placeholder
-{
-    color: #fff;
-}
-
-#contact #contact-form input.error,
-#contact #contact-form textarea.error
-{
-    border-color: red;
-}
-
-#contact #contact-form input
-{
-    line-height: 3.2em;
-
-    height: 3.4em;
-    padding: 0;
-}
-
-#contact #contact-form textarea
-{
-    line-height: 1.7em;
-
-    min-width: 100%;
-    max-width: 100%;
-    height: 8em;
-    margin-bottom: 4.4rem;
-    padding: 0;
-    padding-top: 1em;
-}
-
-#contact #contact-form button
-{
-    line-height: 3.2em;
-
-    position: relative;
-
-    display: inline-block;
-    overflow: hidden;
-
-    width: auto;
-    height: 3.2em;
-    margin-bottom: 0;
-    padding: 0;
-
-    border: none !important;
-    background: none !important;
-}
-
-#contact #contact-form button .circle
-{
-    font-size: 1em;
-    line-height: 5rem;
-
-    position: relative;
-
-    display: inline-block;
-    overflow: hidden;
-
-    width: 5rem;
-    height: 5rem;
-    margin-left: 1em;
-
-    vertical-align: middle;
-
-    border: 2px solid #fff;
-    border-radius: 100%;
-}
-
-#contact #contact-form button .circle i
-{
-    position: absolute;
-    top: 50%;
-    left: 0;
-
-    width: 100%;
-
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    text-align: center;
-}
-
-#contact #contact-form button .circle i:first-child
-{
-    -webkit-transform: translate(-100%,-50%);
-        -ms-transform: translate(-100%,-50%);
-            transform: translate(-100%,-50%);
-}
-
-#contact #contact-form button:hover .circle i:first-child
-{
-    -webkit-transition: .15s ease;
-         -o-transition: .15s ease;
-            transition: .15s ease;
-    -webkit-transform: translate(0,-50%);
-        -ms-transform: translate(0,-50%);
-            transform: translate(0,-50%);
-}
-
-#contact #contact-form button .circle i:last-child
-{
-    -webkit-transform: translate(0,-50%);
-        -ms-transform: translate(0,-50%);
-            transform: translate(0,-50%);
-}
-
-#contact #contact-form button:hover .circle i:last-child
-{
-    -webkit-transition: .15s ease;
-         -o-transition: .15s ease;
-            transition: .15s ease;
-    -webkit-transform: translate(100%,-50%);
-        -ms-transform: translate(100%,-50%);
-            transform: translate(100%,-50%);
-}
-
-
-#contact #contact-form .success-message
-{
-    font-size: 2rem;
-    line-height: 0;
-
-    position: relative;
-    bottom: 0;
-    left: 0;
-
-    height: 0;
-    margin-top: -1.6em;
-    padding: 0 2em;
-
-    -webkit-transition: .2s ease;
-         -o-transition: .2s ease;
-            transition: .2s ease;
-    pointer-events: none;
-
-    opacity: 0;
-    color: #fff;
-    border: 2px solid limegreen;
-    border-radius: 0;
-    background: none;
-}
-
-#contact #contact-form.success .success-message
-{
-    line-height: 6em;
-
-    height: 6em;
-
-    pointer-events: all;
-
-    opacity: 1;
-}
-
-#contact #contact-form .success-message i
-{
-    font-size: 2.4rem;
-
-    margin-right: .7em;
-}
-
-
-
-/** 10. Content Area --> Footer
-*******************************************************************/
-
-#footer .social-icons
-{
-    padding: 0;
-
-    list-style: none;
-}
-
-#footer .social-icons li
-{
-    display: inline-block;
-}
-
-#footer .social-icons li a
-{
-    font-size: 1.5rem;
-    line-height: 5rem;
-    line-height: calc(5rem - 4px);
-
-    position: relative;
-
-    display: block;
-    overflow: hidden;
-
-    width: 5rem;
-    height: 5rem;
-    margin: 0;
-    margin-right: 1em;
-
-    text-align: center;
-
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 100%;
-    background: none;
-}
-
-#footer .social-icons li a i
-{
-    position: absolute;
-    top: 50%;
-    left: 0;
-
-    width: 100%;
-
-    -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
-    text-align: center;
-}
-
-#footer .social-icons li a i:first-child
-{
-    top: -50%;
-}
-
-#footer .social-icons li a:hover i:first-child
-{
-    top: 50%;
-
-    -webkit-transition: .15s ease;
-         -o-transition: .15s ease;
-            transition: .15s ease;
-}
-
-#footer .social-icons li a i:last-child
-{
-    top: 50%;
-}
-
-#footer .social-icons li a:hover i:last-child
-{
-    top: 150%;
-
-    -webkit-transition: .15s ease;
-         -o-transition: .15s ease;
-            transition: .15s ease;
-}
-
-#footer p
-{
-    margin-top: 2em;
-}
-
-#footer p a
-{
-    color: #fff;
-    border-bottom: 1px solid #eee;
-}
+<!doctype html>
+
+<html lang="en">
+   
+   
+    <head>
+       
+       
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="robots" content="noodp">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+       
+        <!-- PAGE TITLE -->
+        <title>Catherine Chalakoff</title>
+       
+        <!-- FAVICON -->
+        <link rel="shortcut icon" href="assets/img/roza.jpeg">
+       
+        <!-- FONTS -->
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">
+       
+        <!-- STYLESHEETS -->
+        <link rel="stylesheet" type="text/css" href="assets/css/plugins.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+        
+        
+    </head>
+
+   
+    <body>
+    
+       
+        <!-- PRELOADER -->
+        <div class="preloader">
+           
+            <div class="spinner"></div>
+            
+        </div>
+        <!-- /PRELOADER -->
+    
+        
+        <!-- IMAGE CONTAINER -->
+        <div class="image-container">
+           
+            <div class="background-img"></div>
+
+        </div>
+        <!-- /IMAGE CONTAINER -->
+
+        <!-- CONTENT AREA -->
+        <div class="content-area">
+
+
+            <!-- CONTENT AREA INNER --> 
+            <div class="content-area-inner">
+
+
+                <!-- INTRO -->
+                <section id="intro">
+
+
+                    <!-- CONTAINER MID -->
+                    <div class="container-mid">
+
+                       
+                        <!-- ANIMATION CONTAINER -->
+                        <div class="animation-container animation-fade-right" data-animation-delay="0">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                            <h1>Catherine Chalakoff</h1>
+                            <h2></h2>
+
+                    
+
+                    </div>
+                        <!-- /ANIMATION CONTAINER -->
+                        
+                        
+                        <!-- ANIMATION CONTAINER -->
+                        <div class="animation-container animation-fade-right" data-animation-delay="200">
+                           <img src="assets/img/cover.png" alt="headshot" /> <p></p>
+                            <a href="#reviews" class="smooth-scroll">Learn More<div class="circle"><i class="fa fa-angle-down" aria-hidden="true"></i><i class="fa fa-angle-down" aria-hidden="true"></i></div></a>
+                            <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                
+                        </div>
+                        <!-- /ANIMATION CONTAINER -->
+
+
+                    </div>
+                    <!-- /CONTAINER MID -->
+
+
+                </section>
+                
+
+                <!-- /INTRO -->
+
+
+                <!-- Reviews -->
+                <section id="reviews">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+    
+                    
+                    <body><p>"Foram ótimos !! Gosto da escola, gostei muito da Catherine !! Como minha aula é da conversação consiga que ela me corrija e melhore meu vocabulário 🥰"
+                        - Anonymous student </p></body> 
+                        <br>
+                        <br>
+                        <br>
+
+                    <body><p>"You were one of the best teachers I had, our experience in the classroom was wonderful and I wish I could have class with you again."- Anonymous student </p></body>
+
+
+
+
+
+                </section>
+                <!-- ABOUT -->
+                <section id="about">
+
+
+                    <h3 class="headline scroll-animated">About Me</h3>
+                    
+                    <p class="scroll-animated">I was born in Chicago, Illinois in a family of hard-working immigrants. Shortly after I was living in my parents’ home country in Europe. As a teenager I returned to Chicago, just in time for sophomore year. Later in college, I double majored in Marketing and International Business because I enjoy working with people and finding commonalities. </p>
+
+                    <p class="scroll-animated">My definition of Marketing: taking a people-centered approach and trying to figure out how to relate to them.</p>
+
+                    <p class="scroll-animated">After my graduation from DU I moved to Brazil and worked as an English teacher. I can proudly say that I have positively contributed to the lives of 54 students. That is one of my biggest achievements. It has also taught me to “read” my audience and connect to them in order to deliver the best results. And as for the rest of my story… it is still being written….</p>
+
+
+                    
+            
+
+
+                </section>
+                <!-- /ABOUT -->
+                
+            
+                <!-- SERVICE -->
+                <section id="service">
+
+
+                    <h3 class="headline scroll-animated">Experiences</h3>
+               
+                    
+                    <!-- SERVICE LIST -->
+                    <ul class="services-list">
+                       
+                       
+                        <!-- SERVICE ITEM -->
+                        <li class="service-item scroll-animated">
+                           
+                           
+                            <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapse-item-1" aria-expanded="false">SEO</button>
+                            
+                            
+                            <!-- COLLAPSE CONTENT -->
+                            <div class="collapse" id="collapse-item-1">
+                               
+                               
+                                <!-- COLLAPSE CONTENT INNER -->
+                                <div class="well">
+                                   
+                                    <p> <ul><li>• Conduct SEO keyword research using Google Ads Keyword Planner.</li>
+                                        <li>• Writing blogs using the most searched keywords.</li>
+                                        <li>• Creating imagery and effectivly using the pictures provided by the company whom I am writing the blog.</li></ul></p>
+                                    
+                                </div>
+                                <!-- /COLLAPSE CONTENT INNER -->
+                                
+                                
+                            </div>
+                            <!-- /COLLAPSE CONTENT -->
+                            
+                            
+                        </li>
+                        <!-- /SERVICE ITEM -->
+                        
+                        
+                        <!-- SERVICE ITEM -->
+                        <li class="service-item scroll-animated">
+                           
+                           
+                            <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapse-item-2" aria-expanded="false">CRM Management</button>
+                            
+                            
+                            <!-- COLLAPSE CONTENT -->
+                            <div class="collapse" id="collapse-item-2">
+                               
+                               
+                                <!-- COLLAPSE CONTENT INNER -->
+                                <div class="well">
+                                   
+                                    <p><ul><li>• Create emails in Salesforce with given information for multiple departments.</li>
+                                        <li>• Design imagery and templates for the emails.</li>
+                                        <li>• Use techniques to attract the attention of the receivers.</li></p>
+                                    
+                                </div>
+                                <!-- /COLLAPSE CONTENT INNER -->
+                                
+                                
+                            </div>
+                            <!-- /COLLAPSE CONTENT -->
+                            
+                            
+                        </li>
+                        <!-- /SERVICE ITEM -->
+                        
+                        
+                        <!-- SERVICE ITEM -->
+                        <li class="service-item scroll-animated">
+                           
+                           
+                            <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapse-item-3" aria-expanded="false">Analytics</button>
+                            
+                            
+                            <!-- COLLAPSE CONTENT -->
+                            <div class="collapse" id="collapse-item-3">
+                               
+                               
+                                <!-- COLLAPSE CONTENT INNER -->
+                                <div class="well">
+                                   
+                                    <p> <ul><li>• Using Google Analytics to monitor information about organic traffic.</li>
+                                        <li>• Keeping track of new versus returning visitors and session durations.</li>
+                                        <li>• Analyze Demographics and Interest Reports in order to optimize content. </li> </p>
+                                    
+                                </div>
+                                <!-- /COLLAPSE CONTENT INNER -->
+                                
+                                
+                            </div>
+                            <!-- /COLLAPSE CONTENT -->
+                            
+                            
+                        </li>
+                        <!-- /SERVICE ITEM -->
+                        
+                        
+                        <!-- SERVICE ITEM -->
+                        <li class="service-item scroll-animated">
+                           
+                           
+                            <button class="btn btn-primary collapsed" type="button" data-toggle="collapse" data-target="#collapse-item-4" aria-expanded="false">Content Creation</button>
+                            
+                            
+                            <!-- COLLAPSE CONTENT -->
+                            <div class="collapse" id="collapse-item-4">
+                               
+                               
+                                <!-- COLLAPSE CONTENT INNER -->
+                                <div class="well">
+                                   
+                                    <p> <ul><li>• Propose ideas for evening events and organize them by contacting businesses and
+                                        gathering any materials needed.</li>
+                                        <li>• Create and distribute flyers using tools such as Canva, Microsoft Word, and Lucidpress.</li>
+                                        <li>• Seek potential leads through email, phone, and face-to-face marketing.</li></p>
+                                    
+                                </div>
+                                <!-- /COLLAPSE CONTENT INNER -->
+                                
+                                
+                            </div>
+                            <!-- /COLLAPSE CONTENT -->
+                            
+                            
+                        </li>
+                        <!-- /SERVICE ITEM -->
+                        
+                        
+                    </ul>
+                    <!-- /SERVICE LIST -->
+
+
+                </section>
+                <!-- /SERVICE -->
+            
+                
+                <!-- WORK -->
+                <section id="work">
+
+
+                    <h3 class="headline scroll-animated">Travels</h3>
+                    
+                    
+                    <!-- SHOWCASE -->
+                    <div class="showcase">
+                       
+                       
+                        <!-- ITEM -->
+                        <div class="item scroll-animated">
+                          
+                          
+                            <!-- LIGHTBOX LINK -->
+                            <a href="#" data-featherlight="#item-1-lightbox">
+                            
+                            
+                                <!-- INFO -->
+                                <div class="info">
+
+
+                                    <!-- CONTAINER MID -->
+                                    <div class="container-mid">
+
+                                        <h5>Rio de Janeiro</h5>
+                                        
+
+                                    </div>
+                                    <!-- /CONTAINER MID -->
+
+
+                                </div>
+                                <!-- /INFO -->
+
+
+                                <div class="background-image" style="background-image: url(assets/img/work/item-1.JPG)"></div>
+
+                           
+                            </a>
+                            <!-- /LIGHTBOX LINK -->
+                            
+                            
+                            <!-- LIGHTBOX -->
+                            <div id="item-1-lightbox" class="work-lightbox">
+                               
+                               
+                                <img class="img-responsive" src="assets/img/work/item-1.JPG" alt="image">
+                                
+                                <h3>Rio de Janeiro</h3>
+                                <p class="subline">🇧🇷</p>
+                                
+                               
+                                
+                            </div>
+                            <!-- /LIGHTBOX -->
+                            
+                            
+                        </div>
+                        <!-- /ITEM -->
+                        
+                        
+                        <!-- ITEM -->
+                        <div class="item scroll-animated">
+                          
+                          
+                            <!-- LIGHTBOX LINK -->
+                            <a href="#" data-featherlight="#item-2-lightbox">
+                            
+                            
+                                <!-- INFO -->
+                                <div class="info">
+
+
+                                    <!-- CONTAINER MID -->
+                                    <div class="container-mid">
+
+                                        <h5>Lisbon</h5>
+                                        
+
+                                    </div>
+                                    <!-- /CONTAINER MID -->
+
+
+                                </div>
+                                <!-- /INFO -->
+
+
+                                <div class="background-image" style="background-image: url(assets/img/work/item-2.jpg)"></div>
+
+                           
+                            </a>
+                            <!-- /LIGHTBOX LINK -->
+                            
+                            
+                            <!-- LIGHTBOX -->
+                            <div id="item-2-lightbox" class="work-lightbox">
+                               
+                               
+                                <img class="img-responsive" src="assets/img/work/item-2.jpg" alt="image">
+                                
+                                <h3>Lisbon</h3>
+                                <p class="subline">🇵🇹</p>
+                                
+                                
+                                
+                            </div>
+                            <!-- /LIGHTBOX -->
+                            
+                            
+                        </div>
+                        <!-- /ITEM -->
+                        
+                        
+                        <!-- ITEM -->
+                        <div class="item scroll-animated">
+                          
+                          
+                            <!-- LIGHTBOX LINK -->
+                            <a href="#" data-featherlight="#item-3-lightbox">
+                            
+                            
+                                <!-- INFO -->
+                                <div class="info">
+
+
+                                    <!-- CONTAINER MID -->
+                                    <div class="container-mid">
+
+                                        <h5>Athens</h5>
+                                        
+
+                                    </div>
+                                    <!-- /CONTAINER MID -->
+
+
+                                </div>
+                                <!-- /INFO -->
+
+
+                                <div class="background-image" style="background-image: url(assets/img/work/item-3.JPG)"></div>
+
+                           
+                            </a>
+                            <!-- /LIGHTBOX LINK -->
+                            
+                            
+                            <!-- LIGHTBOX -->
+                            <div id="item-3-lightbox" class="work-lightbox">
+                               
+                               
+                                <img class="img-responsive" src="assets/img/work/item-3.JPG" alt="image">
+                                
+                                <h3>Athens</h3>
+                                <p class="subline">🇬🇷</p>
+                                
+                                
+                                
+                            </div>
+                            <!-- /LIGHTBOX -->
+                            
+                            
+                        </div>
+                        <!-- /ITEM -->
+                        
+                        
+                        <!-- ITEM -->
+                        <div class="item scroll-animated">
+                          
+                          
+                            <!-- LIGHTBOX LINK -->
+                            <a href="#" data-featherlight="#item-4-lightbox">
+                            
+                            
+                                <!-- INFO -->
+                                <div class="info">
+
+
+                                    <!-- CONTAINER MID -->
+                                    <div class="container-mid">
+
+                                        <h5>Jericoacoara</h5>
+                                       
+
+                                    </div>
+                                    <!-- /CONTAINER MID -->
+
+
+                                </div>
+                                <!-- /INFO -->
+
+
+                                <div class="background-image" style="background-image: url(assets/img/work/item-4.JPG)"></div>
+
+                           
+                            </a>
+                            <!-- /LIGHTBOX LINK -->
+                            
+                            
+                            <!-- LIGHTBOX -->
+                            <div id="item-4-lightbox" class="work-lightbox">
+                               
+                               
+                                <img class="img-responsive" src="assets/img/work/item-4.JPG" alt="image">
+                                
+                                <h3>Jericoacoara</h3>
+                                <p class="subline">🇧🇷</p>
+                                
+                        
+                                
+                                
+                            </div>
+                            <!-- /LIGHTBOX -->
+                            
+                            
+                        </div>
+                        <!-- /ITEM -->
+                        
+                        
+                    </div>
+                    <!-- /SHOWCASE -->
+
+
+                </section>
+                <!-- /WORK -->
+                
+                
+            
+                    
+                   
+
+
+            
+                
+                
+                <!-- FOOTER -->
+                <section id="footer">
+                
+                   
+                    <!-- SOCIAL ICONS -->
+                    <ul class="social-icons scroll-animated">
+                       
+                       
+                        
+                        <li><a href="https://www.linkedin.com/in/catherinechalakoff" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        
+                        
+                    </ul>
+                    <!-- /SOCIAL ICONS -->
+                    
+
+                    <p class="scroll-animated"> Design by Catherine Chalakoff | 2021 </p>
+
+
+                </section>
+                <!-- /FOOTER -->
+
+
+            </div>
+            <!-- /CONTENT AREA INNER -->
+
+
+        </div>
+        <!-- /CONTENT AREA -->
+        
+        
+        <!-- JAVASCRIPTS -->
+        <script type="text/javascript" src="assets/js/plugins.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+   
+   
+    </body> 
+    
+    
+</html>
